@@ -1,0 +1,6 @@
+name: JoinSendTg
+version: '1.1-1.21.10'
+main: com.koolda.joinSendTg.JoinSendTg
+api-version: '1.21'
+author: DKot
+description: Sends Telegram message when player joins
