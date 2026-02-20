@@ -21,7 +21,7 @@
 ### ⚙️ Configuration (`config.yml`)
 
 ```yaml
-# v1.1 - configuration version, update if you are using an older one
+# v1.2 - configuration version, update if you are using an older one
 
 telegram:
   token: "BOT_TOKEN" # Get it from @BotFather
