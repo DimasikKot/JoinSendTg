@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.net.HttpURLConnection;
@@ -20,7 +21,12 @@ public class JoinSendTg extends JavaPlugin implements Listener {
 
     private String token;
     private String chatId;
-    private String telegramMessage;
+    private boolean sendJoinMessage;
+    private String joinMessage;
+    private boolean sendQuitMessage;
+    private String quitMessage;
+    private boolean sendDisableMessage;
+    private String disableMessage;
     private String serverMessage;
     private String linkMessage;
 
@@ -31,7 +37,14 @@ public class JoinSendTg extends JavaPlugin implements Listener {
 
         token = getConfig().getString("telegram.token");
         chatId = getConfig().getString("telegram.chat-id");
-        telegramMessage = getConfig().getString("message.telegram");
+        sendJoinMessage = getConfig().getBoolean("message.send-join", false);
+        joinMessage = getConfig().getString("message.join");
+        sendQuitMessage = getConfig().getBoolean("message.send-quit", false);
+        quitMessage = getConfig().getString("message.quit");
+        boolean sendStartMessage = getConfig().getBoolean("message.send-start", false);
+        String startMessage = getConfig().getString("message.start");
+        sendDisableMessage = getConfig().getBoolean("message.send-disable", false);
+        disableMessage = getConfig().getString("message.disable");
         serverMessage = getConfig().getString("message.server");
         linkMessage = getConfig().getString("message.link");
 
@@ -43,18 +56,35 @@ public class JoinSendTg extends JavaPlugin implements Listener {
 
         Bukkit.getPluginManager().registerEvents(this, this);
         getLogger().info("JoinSendTg enabled");
+
+        if (sendStartMessage) {
+            sendToTelegram(startMessage);
+        }
     }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        String playerName = event.getPlayer().getName();
-        String text = telegramMessage.replace("{player}", playerName);
+        if (sendJoinMessage) {
+            String playerName = event.getPlayer().getName();
+            String text = joinMessage.replace("{player}", playerName);
 
-        // Отправка в Telegram
-        Bukkit.getScheduler().runTaskAsynchronously(this, () -> sendToTelegram(text));
+            // Отправка в Telegram
+            Bukkit.getScheduler().runTaskAsynchronously(this, () -> sendToTelegram(text));
 
-        // Сообщение в чат сервера
-        sendToServerChat();
+            // Сообщение в чат сервера
+            sendToServerChat();
+        }
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        if (sendQuitMessage) {
+            String playerName = event.getPlayer().getName();
+            String text = quitMessage.replace("{player}", playerName);
+
+            // Отправка в Telegram
+            Bukkit.getScheduler().runTaskAsynchronously(this, () -> sendToTelegram(text));
+        }
     }
 
     private void sendToTelegram(String message) {
@@ -91,8 +121,10 @@ public class JoinSendTg extends JavaPlugin implements Listener {
         Bukkit.getServer().broadcast(message);
     }
 
-    //    @Override
-    //    public void onDisable() {
-    //        Plugin shutdown logic
-    //    }
+        @Override
+        public void onDisable() {
+            if (sendDisableMessage) {
+                sendToTelegram(disableMessage);
+            }
+        }
 }

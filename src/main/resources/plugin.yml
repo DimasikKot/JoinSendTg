@@ -1,5 +1,5 @@
 name: JoinSendTg
-version: 'v1.1-paper1.21.10'
+version: 'v1.2-paper1.21.10'
 main: com.koolda.joinSendTg.JoinSendTg
 api-version: '1.21'
 author: DKot
