@@ -1,5 +1,5 @@
 
-[English](/README.en_US.md) | [Русский](/README.md)
+**Русский** | [English](/README.en_US.md)
 
 ---
 
@@ -21,16 +21,16 @@
 ### ⚙️ Конфигурация (`config.yml`)
 
 ```yaml
-# v1.1 - configuration version, update if you are using an older one
+# v1.1 - это версия конфига, обновите, если на сервере используется старая версия
 
 telegram:
-  token: "BOT_TOKEN" # Получите токен у @BotFather
-  chat-id: "CHAT_ID" # ID чата или пользователя (группа или личные сообщения)
+  token: "BOT_TOKEN" # Возьмите его в BotFather
+  chat-id: "CHAT_ID" # Можно добавить бота в группу "@group_link" или писать лично в сообщения админу "123456"
 
 message:
-  telegram: "Player {player} joined the server" # {player} — ник игрока
-  server: "📢 Our Telegram: "
-  link: "https://t.me/link" # Оставьте пустым "", если не хотите показывать ссылку
+  telegram: "Игрок {player} зашёл на сервер" # {player} - никнейм зашедшего игрока
+  server: "📢 Наш Telegram: " # выводится при подключении каждого игрока
+  link: "https://t.me/link" # Если оставить поле пустым "", то ссылки выводиться не будет
 ```
 
 ---
