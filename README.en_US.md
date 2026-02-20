@@ -1,5 +1,5 @@
 
-[English](/README.en_US.md) | [Русский](/README.md)
+[Русский](/README.md) | **English**
 
 ---
 
