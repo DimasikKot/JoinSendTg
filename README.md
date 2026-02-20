@@ -28,13 +28,13 @@ telegram:
   chat-id: "CHAT_ID" # Можно добавить бота в группу "@group_link" или писать лично в сообщения админу "123456"
 
 message:
-  send-join: "true"
+  send-join: true
   join: "{player} присоединился к игре" # {player} - никнейм зашедшего игрока
-  send-quit: "true"
+  send-quit: true
   quit: "{player} покинул игру" # {player} - никнейм зашедшего игрока
-  send-start: "true"
+  send-start: true
   start: "Сервер был запущен"
-  send-disable: "true"
+  send-disable: true
   disable: "Сервер был выключен"
   server: "📢 Наш Telegram: " # выводится при подключении каждого игрока
   link: "https://t.me/link" # Если оставить поле пустым "", то ссылки выводиться не будет
