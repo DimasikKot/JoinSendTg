@@ -7,8 +7,8 @@ telegram:
 message:
   send-join: "true"
   join: "{player} присоединился к игре" # {player} - никнейм зашедшего игрока
-  send-leave: "true"
-  leave: "{player} покинул игру" # {player} - никнейм зашедшего игрока
+  send-quit: "true"
+  quit: "{player} покинул игру" # {player} - никнейм зашедшего игрока
   send-start: "true"
   start: "Сервер был запущен"
   send-disable: "true"

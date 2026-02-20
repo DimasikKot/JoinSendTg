@@ -28,7 +28,14 @@ telegram:
   chat-id: "CHAT_ID" # Chat ID or user ID (group or private messages)
 
 message:
-  telegram: "Player {player} joined the server" # {player} — player nickname
+  send-join: "true"
+  join: "{player} join the game" # {player} - nickname
+  send-quit: "true"
+  quit: "{player} leave the game" # {player} - nickname
+  send-start: "true"
+  start: "Server on"
+  send-disable: "true"
+  disable: "Server off"
   server: "📢 Our Telegram: "
   link: "https://t.me/link" # Leave empty "" to disable the link
 ```
