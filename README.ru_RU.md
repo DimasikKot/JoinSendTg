@@ -1,75 +1,83 @@
 
 [English](/README.md) | [Русский](/README.ru_RU.md)
 
-### 📌 Features
+---
 
-* 📩 Sends a **Telegram message** when a player joins the server
-* 💬 Displays a message in the server chat on join
-* 🔗 Optional Telegram link support
-* ⚙️ Easy configuration via `config.yml`
+# JoinSendTg
+
+**JoinSendTg** — это простой плагин для Minecraft-сервера, который отправляет уведомления в Telegram, когда игрок заходит на сервер, и показывает сообщение с ссылкой на Telegram прямо в игре.
 
 ---
 
-### ⚙️ Configuration (`config.yml`)
+### 📌 Возможности
+
+* 📩 Отправка сообщения в **Telegram** при входе игрока на сервер
+* 💬 Отображение сообщения в чате сервера при входе
+* 🔗 Поддержка ссылки на Telegram
+* ⚙️ Простая настройка через `config.yml`
+
+---
+
+### ⚙️ Конфигурация (`config.yml`)
 
 ```yaml
 # v1.1 - configuration version, update if you are using an older one
 
 telegram:
-  token: "BOT_TOKEN" # Get it from @BotFather
-  chat-id: "CHAT_ID" # Chat ID or user ID (group or private messages)
+  token: "BOT_TOKEN" # Получите токен у @BotFather
+  chat-id: "CHAT_ID" # ID чата или пользователя (группа или личные сообщения)
 
 message:
-  telegram: "Player {player} joined the server" # {player} — player nickname
+  telegram: "Player {player} joined the server" # {player} — ник игрока
   server: "📢 Our Telegram: "
-  link: "https://t.me/link" # Leave empty "" to disable the link
+  link: "https://t.me/link" # Оставьте пустым "", если не хотите показывать ссылку
 ```
 
 ---
 
-### 🔑 Configuration Options
+### 🔑 Параметры
 
 #### `telegram.token`
 
-Your Telegram bot token.
-Get it from **@BotFather**.
+Токен Telegram-бота.
+Получается через **@BotFather**.
 
 #### `telegram.chat-id`
 
-Target chat or user ID:
+ID чата или пользователя:
 
-* Private chat: `123456789`
-* Group chat (bot must be added): `-100XXXXXXXXXX`
+* Личное сообщение: `123456789`
+* Группа (бот должен быть добавлен): `-100XXXXXXXXXX`
 
 #### `message.telegram`
 
-Message sent to Telegram when a player joins.
-Available placeholders:
+Сообщение, которое отправляется в Telegram при входе игрока.
+Доступные плейсхолдеры:
 
-* `{player}` — player nickname
+* `{player}` — никнейм игрока
 
 #### `message.server`
 
-Message displayed in the in-game chat when a player joins.
+Сообщение, которое показывается игроку в чате при входе.
 
 #### `message.link`
 
-Telegram link:
+Ссылка на Telegram:
 
-* If set — shown in chat
-* If empty (`""`) — link will not be shown
-
----
-
-### 📦 Installation
-
-1. Put `JoinSendTg.jar` into the `plugins` folder
-2. Start the server
-3. Edit `config.yml`
-4. Restart the server
+* Если указана — будет показана в чате
+* Если `""` — ссылка не отображается
 
 ---
 
-### 📄 License
+### 📦 Установка
 
-This project is licensed under the **MIT License** (or specify your own).
+1. Скопируйте `JoinSendTg.jar` в папку `plugins`
+2. Запустите сервер
+3. Настройте `config.yml`
+4. Перезапустите сервер
+
+---
+
+### 📄 Лицензия
+
+Этот проект распространяется под лицензией **MIT**
